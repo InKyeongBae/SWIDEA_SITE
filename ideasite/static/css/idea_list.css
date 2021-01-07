@@ -1,0 +1,82 @@
+#head {
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#head div:nth-child(1) {
+    margin: 0; padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    color: #95a792;
+}
+
+#head div:nth-child(2) {
+    margin-top: 10px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: darkgrey;
+    margin-bottom: 10px;
+}
+
+#ideas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #F2F2F2;
+    padding: 10px;
+}
+
+#ideas .idea {
+    background: white;
+    box-shadow: 1px 1px 3px #cccccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#ideas img {
+    width: 220px; height: 220px;
+    object-fit: cover;
+}
+
+#ideas .title {
+    margin: 5px 0;
+}
+
+#ideas .title a {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #403f48;
+    text-decoration: none;
+}
+
+#ideas .title a:hover {
+    text-decoration: underline;
+}
+
+#ideas .devtool, #ideas .interest {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: #403f48;
+}
+
+#ideas .interest {
+    margin-bottom: 10px;
+}
+
+#ideas input {
+    width: 30px; height: 25px;
+    background: #95a792;
+    border-radius: 2px;
+    color: white;
+    border: none;
+    font-size: 20px;
+}

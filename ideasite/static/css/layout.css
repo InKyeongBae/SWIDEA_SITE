@@ -1,0 +1,99 @@
+html, body {
+    margin: 0; padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#header {
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 2px #cccccc;
+    padding: 0 10%;
+    background: #403f48;
+}
+
+#title {
+    display: flex;
+}
+
+#title a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: #95a792;
+    text-decoration: none;
+}
+
+#nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#nav ul {
+    width: 270px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#nav li {
+    list-style: none;
+}
+
+#nav a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+#body {
+    height: 79%;
+    padding: 0 10%;
+}
+
+#footer {
+    height: 13%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+    padding: 0 10%;
+}
+
+#footer div {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: darkgrey;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#footer div:nth-child(1) {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 6px;
+}
+
+
+/*===============idea-create=================*/
+
+#idea-form button {
+    margin-top: 10px;
+    padding: 7px 20px;
+    font-family: "Noto Sans KR", sans-serif;
+    color: white;
+    font-size: 17px;
+    background: #596c68;
+    border: none;
+    border-radius: 5px;
+}
+
+#idea-form button:hover {
+    cursor: pointer;
+}

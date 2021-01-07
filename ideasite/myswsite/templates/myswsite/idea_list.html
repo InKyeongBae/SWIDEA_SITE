@@ -1,0 +1,36 @@
+{% extends "myswsite/layout.html" %}
+
+
+{% block headAppend %}
+
+    <script>
+        function clickButton (pk, status) {
+            console.log(pk); //확인용
+            console.log(status);
+            
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div id="head">
+        <div>Idea List</div>
+        <div>나의 아이디어를 잊지 말고 기록해보세요</div>
+    </div>
+
+    <div id="ideas">
+        {% for idea in ideas %}
+            <div class="idea">
+                {% if idea.image %}
+                    <div class="image"><img src="{{ idea.image.url }}" alt=""></div>
+                {% endif %}
+                <div class="title"><a href="{% url 'idea_read' idea.pk %}">{{ idea.title }}</a></div>
+                <div class="devtool">예상 개발 툴 : {{ idea.devtool }}</div>
+                <div id="interest-{{ idea.pk }}" class="interest">아이디어 관심도 : {{ idea.interest }}</div>
+
+                <input type="submit" onclick="clickButton({{ idea.pk }},'plus')" value="+" class="button">
+                <input type="submit" onclick="clickButton({{ idea.pk }},'minus')" value="-" class="button">
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
