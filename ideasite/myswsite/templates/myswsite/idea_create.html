@@ -1,0 +1,15 @@
+{% extends "myswsite/layout.html" %}
+{% block content %}
+    <div id="head">
+        <div>Idea Register</div>
+        <div>아이디어 등록 페이지 입니다. 당신의 아이디어를 잊지 말고 기록하세요!</div>
+    </div>
+
+    <div id="idea-form">
+        <form action="" method="post" class="idea_form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">저장</button>
+        </form>
+    </div>
+{% endblock %}

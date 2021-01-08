@@ -5,14 +5,11 @@
     <head>
         <meta charset="UTF-8">
         <title>My SW Idea Management</title>
-        <style type="text/css">
-            @import url("static/css/layout.css");
-            @import url("static/css/devtool_list.css");
-            @import url("static/css/devtool_read.css");
-            @import url("static/css/idea_list.css");
-            @import url("static/css/idea_read.css");
-        </style>
-        
+        <link rel="stylesheet" href="{% static 'css/layout.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/devtool_list.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/devtool_read.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/idea_list.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/idea_read.css' %}" />
         {% block headAppend %}
         {% endblock %}
     </head>

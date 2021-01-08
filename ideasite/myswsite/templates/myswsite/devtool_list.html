@@ -1,0 +1,19 @@
+{% extends "myswsite/layout.html" %}
+
+{% block content %}
+    <div id="head">
+        <div>DevTool List</div>
+        <div>개발툴 목록 페이지 입니다. 자신이 사용가능한 개발툴의 목록을 확인해 보세요.</div>
+    </div>
+
+    <div id="devtools">
+        {% for devtool in devtools %}
+            <div class="devtool">
+                <div class="name"><a href="{% url 'myswsite:devtool_read' devtool.pk %}">{{ devtool.name }}</a></div>
+                <div class="kind">{{ devtool.kind }}</div>
+                <div class="description">{{ devtool.description }}</div>
+            </div>
+        {% endfor %}
+    </div>
+    <input style="background-color: red;" placeholder="Input">
+{% endblock %}

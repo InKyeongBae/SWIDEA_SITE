@@ -1,0 +1,41 @@
+#devtools {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#devtools .devtool {
+    margin-bottom: 20px;
+    padding: 10px 30px;
+    width: 220px; height: 140px;
+    background: #e1eacd;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#devtools .devtool div {
+    font-family: "Noto Sans KR", sans-serif;
+    color: #403f48;
+    font-size: 17px;
+    margin-bottom: 2px;
+}
+
+#devtools .devtool .name {
+    padding-bottom: 5px;
+    border-bottom: 1px solid white;
+    margin-bottom: 8px;
+}
+
+#devtools .devtool .name a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #403f48;
+    font-weight: 700;
+}
+
+#devtools .devtool .name a:hover {
+    text-decoration: underline;
+}

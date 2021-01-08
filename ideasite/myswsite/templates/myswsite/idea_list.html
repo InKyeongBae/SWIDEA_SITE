@@ -24,7 +24,7 @@
                 {% if idea.image %}
                     <div class="image"><img src="{{ idea.image.url }}" alt=""></div>
                 {% endif %}
-                <div class="title"><a href="{% url 'idea_read' idea.pk %}">{{ idea.title }}</a></div>
+                <div class="title"><a href="{% url 'myswsite:idea_read' idea.pk %}">{{ idea.title }}</a></div>
                 <div class="devtool">예상 개발 툴 : {{ idea.devtool }}</div>
                 <div id="interest-{{ idea.pk }}" class="interest">아이디어 관심도 : {{ idea.interest }}</div>
 

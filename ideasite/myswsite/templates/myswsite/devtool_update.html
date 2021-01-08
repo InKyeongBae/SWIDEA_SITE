@@ -1,0 +1,16 @@
+{% extends "myswsite/layout.html" %}
+
+{% block content %}
+    <div id="head">
+        <div>DevTool Detail Update</div>
+        <div>개발툴 세부내용 수정 페이지 입니다. 개발툴에 대해 수정사항이 있으면 고쳐보아요.</div>
+    </div>
+
+    <div id="idea-form">
+        <form action="" method="post" class="idea_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">저장</button>
+        </form>
+    </div>
+{% endblock %}

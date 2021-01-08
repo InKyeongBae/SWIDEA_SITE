@@ -1,0 +1,41 @@
+{% extends "myswsite/layout.html" %}
+
+{% block content %}
+    <div id="head">
+        <div>Idea Detail</div>
+        <div>아이디어 세부내용 페이지 입니다. 당신이 구현하려 한 아이디어들을 자세히 살펴보세요.</div>
+    </div>
+
+    <div id="idea-wrap">
+        <div id="idea">
+            {% if idea.image %}
+                <div class="image"><img src="{{ idea.image.url }}" alt=""></div>
+            {% endif %}
+            <div class="text">
+                <div class="title">{{ idea.title }}</div>
+                <div class="interest">아이디어 관심도 : <span>{{ idea.interest }}</span></div>
+                <div class="devtool">개발 툴 : <a href="{% url 'myswsite:devtool_read' idea.devtool.pk %}">{{ idea.devtool }}</a></div>
+                <div class="content">아이디어 설명 : <span>{{ idea.content|linebreaks }}</span></div>
+            </div>
+        </div>
+
+        <div id="buttons">
+            <div class="left">
+                <form action="{% url 'myswsite:idea_delete' idea.pk %}" method="post">
+                    {% csrf_token %}
+                    <div class="delete"><input type="submit" value="삭제"></div>
+                </form>
+            </div>
+            <div class="right">
+                <form action="{% url 'myswsite:idea_list' %}">
+                    {% csrf_token %}
+                    <div class="list"><input type="submit" value="목록"></div>
+                </form>
+                <form action="{% url 'myswsite:idea_update' idea.pk %}">
+                    {% csrf_token %}
+                    <div class="update"><input type="submit" value="수정"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

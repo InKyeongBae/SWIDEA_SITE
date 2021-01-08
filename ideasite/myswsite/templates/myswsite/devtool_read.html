@@ -1,0 +1,45 @@
+{% extends "myswsite/layout.html" %}
+
+{% block content %}
+    <div id="head">
+        <div>DevTool Detail</div>
+        <div>개발툴 세부내용 페이지 입니다. 자신이 다룰 수 있는 개발툴에 대한 상세내용을 확인해 보아요.</div>
+    </div>
+
+    <div id="wrap">
+        <div id="background">
+            <div id="devtool">
+                <div class="name">{{ devtool.name }}</div>
+                <div class="kind">{{ devtool.kind }}</div>
+                <div class="description">{{ devtool.description }}</div>
+            </div>
+            <div id="idea">
+                <div class="list-name">만들 수 있는 SW 목록</div>
+                <div class="list">
+                    {% for idea in devtool.idea_set.all %}
+                        <div><a href="{% url 'myswsite:idea_read' idea.pk %}">{{ idea.title }}</a></div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="account-buttons">
+        <div class="left">
+            <form action="{% url 'myswsite:devtool_delete' devtool.pk %}" method="post">
+                {% csrf_token %}
+                <div class="delete"><input type="submit" value="삭제"></div>
+            </form>
+        </div>
+        <div class="right">
+            <form action="{% url 'myswsite:devtool_list' %}">
+                {% csrf_token %}
+                <div class="list"><input type="submit" value="목록"></div>
+            </form>
+            <form action="{% url 'myswsite:devtool_update' devtool.pk %}">
+                {% csrf_token %}
+                <div class="update"><input type="submit" value="수정"></div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

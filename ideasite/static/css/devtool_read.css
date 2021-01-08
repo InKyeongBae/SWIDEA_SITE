@@ -1,0 +1,106 @@
+/*div { border: 1px solid #cccccc; }*/
+
+#wrap {
+    padding: 18px 25%;
+    margin-bottom: 20px;
+}
+
+#wrap #background {
+    border: 1px solid #cccccc;
+    box-shadow: 1px 1px 2px #cccccc;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#wrap #devtool div {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #403f48;
+    padding-left: 10px;
+    border-left: 2px solid #95a792;
+}
+
+#wrap #devtool .name {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    border-left: none;
+    padding-left: 0;
+}
+
+#wrap #idea {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 20px 0 0;
+    padding: 15px 0 0;
+    border-top: 1px solid #cccccc;
+}
+
+#wrap #idea .list-name {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+    color: #95a792;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+#wrap #idea .list div {
+    margin-bottom: 2px;
+}
+
+#wrap #idea .list a {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 300;
+    color: grey;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+#wrap #idea .list a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+#devtool-buttons {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid lightgray;
+}
+
+#devtool-buttons input {
+    margin-top: 10px;
+    padding: 7px 20px;
+    font-family: "Noto Sans KR", sans-serif;
+    color: white;
+    font-size: 17px;
+    background: #c9485b;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    width: 100%;
+}
+
+#devtool-buttons input:hover {
+    cursor: pointer;
+}
+
+#devtool-buttons .right {
+    display: flex;
+}
+
+#devtool-buttons .right form:nth-child(1) input {
+     background: #95a792;
+}
+
+#devtool-buttons .right form:nth-child(2) {
+    margin-left: 5px;
+}
+
+#devtool-buttons .right form:nth-child(2) input {
+    background: #596c68;
+}

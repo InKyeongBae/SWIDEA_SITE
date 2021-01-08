@@ -1,0 +1,16 @@
+{% extends "myswsite/layout.html" %}
+
+{% block content %}
+    <div id="head">
+        <div>Idea Detail Update</div>
+        <div>아이디어 세부내용 수정 페이지 입니다. 아이디어를 구체화하거나 내용을 변경해 보아요.</div>
+    </div>
+
+    <div id="idea-form">
+        <form action="" method="post" class="idea_form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">저장</button>
+        </form>
+    </div>
+{% endblock %}

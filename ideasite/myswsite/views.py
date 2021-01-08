@@ -19,6 +19,7 @@ def idea_read(request, pk):
     data = {
         "idea": idea
     }
+
     return render(request, "myswsite/idea_read.html", data)
 
 

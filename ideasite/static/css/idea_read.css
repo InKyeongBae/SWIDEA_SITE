@@ -1,0 +1,95 @@
+#idea-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+#idea {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#idea .image img {
+    width: 500px; height: 370px;
+    object-fit: cover;
+}
+
+#idea .text {
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 15px;
+}
+
+#idea .text div {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #95a792;
+}
+
+#idea .text .title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #403f48;
+}
+
+#idea div span {
+    font-weight: 300;
+    color: #403f48;
+}
+
+#idea .text .devtool {
+    color: #403f48
+}
+
+#idea .text .devtool a {
+    color: #95a792;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+#idea .text .devtool a:hover {
+    text-decoration: underline;
+}
+
+#idea-wrap #buttons {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid lightgray;
+}
+
+#idea-wrap #buttons input {
+    margin-top: 10px;
+    padding: 7px 20px;
+    font-family: "Noto Sans KR", sans-serif;
+    color: white;
+    font-size: 17px;
+    background: #c9485b;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    width: 100%;
+}
+
+#idea-wrap #buttons input:hover {
+    cursor: pointer;
+}
+
+#idea-wrap #buttons .right {
+    display: flex;
+}
+
+#idea-wrap #buttons .right form:nth-child(1) input {
+    background: #95a792
+}
+
+#idea-wrap #buttons .right form:nth-child(2) {
+    margin-left: 5px;
+}
+
+#idea-wrap #buttons .right form:nth-child(2) input {
+    background: #596c68;
+}

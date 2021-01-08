@@ -1,0 +1,18 @@
+{% extends "myswsite/layout.html" %}
+
+
+
+{% block content %}
+    <div id="head">
+        <div>DevTool Register</div>
+        <div>개발툴 등록 페이지 입니다. 자신이 다룰 수 있는 개발툴을 등록해 보세요.</div>
+    </div>
+
+    <div id="idea-form">
+        <form action="" method="post" class="devtool_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">저장</button>
+        </form>
+    </div>
+{% endblock %}
