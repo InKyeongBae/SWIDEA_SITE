@@ -1,8 +1,9 @@
 from django.http import JsonResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views.decorators.http import require_POST
 from myswsite.forms import *
 from myswsite.models import Idea, DevTool
+from django.http import HttpResponseRedirect,HttpResponse
 
 # Create your views here.
 
@@ -28,7 +29,9 @@ def idea_create(request):
         form = IdeaForm(request.POST, request.FILES)
         if form.is_valid():
             idea = form.save()
-            return redirect("idea_read", idea.pk)
+            key = Idea.objects.count()
+            url = reverse('myswsite:idea_read', args=[key])
+            return redirect(to=url)
     else:
         form = IdeaForm()
         data = {
@@ -45,7 +48,8 @@ def idea_update(request, pk):
         form = IdeaForm(request.POST, request.FILES, instance=idea)
         if form.is_valid():
             idea = form.save()
-        return redirect("idea_read", idea.pk)
+            url = reverse('myswsite:idea_read', args=[idea])
+            return redirect(to=url)
 
     else:
         form = IdeaForm(instance=idea)
@@ -57,12 +61,31 @@ def idea_update(request, pk):
 
 def idea_delete(request, pk):
     idea = Idea.objects.get(pk=pk)
+    idea.delete()
+    ideas = Idea.objects.all()
+    data = {
+        "ideas": ideas
+    }
+    return render(request, "myswsite/idea_list.html", data)
 
-    if request.method == "POST":
-        idea.delete()
-        return redirect("idea_list")
+@require_POST
+def interest_ajax(request):
+    pk = request.POST.get("pk")
+    status = request.POST.get("status")
+    idea = get_object_or_404(Idea, pk=pk)
 
-    return redirect("idea_read", idea.pk)
+    if status == "plus":
+        idea.interest += 1
+    else:
+        if idea.interest > 0:
+            idea.interest -= 1
+        else:
+            redirect('idea_list')
+    idea.save()
+    data = {
+        "interest": idea.interest,
+    }
+    return JsonResponse(data)
 
 
 # ==========거래처===============
@@ -83,18 +106,18 @@ def devtool_read(request, pk):
     return render(request, "myswsite/devtool_read.html", data)
 
 
-def devtool_create(request):
+def devtool_create(request, devtool = None):
     if request.method == "POST":
-        form = DevToolForm(request.POST)
+        form = DevToolForm(request.POST, instance = devtool)
         if form.is_valid():
             devtool = form.save()
-            return redirect("devtool_read", devtool.pk)
+            return redirect(devtool)
     else:
-        form = DevToolForm()
-        data = {
-            "form": form
-        }
-        return render(request, "myswsite/devtool_create.html", data)
+        form = DevToolForm(instance = devtool)
+    return render(request,'myswsite/devtool_create.html',{"form" : form})    
+        
+        
+        
 
 
 def devtool_update(request, pk):
@@ -104,7 +127,8 @@ def devtool_update(request, pk):
         form = DevToolForm(request.POST, instance=devtool)
         if form.is_valid():
             devtool = form.save()
-        return redirect("devtool_read", devtool.pk)
+            url = reverse('myswsite:devtool_read', args=[devtool])
+            return redirect(to=url)
 
     else:
         form = DevToolForm(instance=devtool)
@@ -117,8 +141,10 @@ def devtool_update(request, pk):
 def devtool_delete(request, pk):
     devtool = DevTool.objects.get(pk=pk)
 
-    if request.method == "POST":
-        devtool.delete()
-        return redirect("devtool_list")
+    devtool.delete()
+    devtools = DevTool.objects.all()
+    data = {
+        "devtools": devtools
+    }
+    return render(request, "myswsite/devtool_list.html", data)
 
-    return redirect("devtool_read", devtool.pk)

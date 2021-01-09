@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 # Create your models here.
 class DevTool(models.Model):
@@ -8,6 +9,10 @@ class DevTool(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("myswsite:devtool_read", kwargs={"pk": self.pk})
+
 
 class Idea(models.Model):
     title = models.CharField(max_length=50, null=True, blank=True)
@@ -19,6 +24,7 @@ class Idea(models.Model):
     def __str__(self):
         return self.title
 
-
-
+    def get_absolute_url(self):
+        return reverse("myswsite:idea_read", kwargs={"pk": self.pk})
+    
 

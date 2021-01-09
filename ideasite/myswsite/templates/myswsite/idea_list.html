@@ -2,12 +2,24 @@
 
 
 {% block headAppend %}
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         function clickButton (pk, status) {
             console.log(pk); //확인용
             console.log(status);
-            
+             $.ajax({
+                type: "post",
+                url: "{% url 'myswsite:interest_ajax' %}",
+                data: {"pk": pk, "status": status, "csrfmiddlewaretoken": "{{ csrf_token }}"},
+                success: function (response) {
+                    console.log("success");
+                    let a = document.getElementById(`interest-${pk}`);
+
+                    a.innerText = `아이디어 관심도 : ${response.interest}`;
+                }, error: function (request, status, error) { // 통신 실패
+                    alert("fail");
+                },
+            })
         }
     </script>
 {% endblock %}
