@@ -7,10 +7,17 @@
     </div>
 
     <div id="idea-form">
-        <form action="" method="post" class="idea_form" enctype="multipart/form-data">
+        <form action="" method="post" class="form_css" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">저장</button>
+            {% for field in form %}
+                <div class="form-label">
+                    >> {{ field.label }}
+                </div>
+                <div class"form-field">
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <button type="submit">Submit</button>
         </form>
     </div>
 {% endblock %}

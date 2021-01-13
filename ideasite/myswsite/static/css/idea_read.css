@@ -1,6 +1,11 @@
 #idea-wrap {
-    display: flex;
+    display: block;
     flex-direction: column;
+    
+    box-shadow: 1px 1px 3px #cccccc;
+    padding : 10px 0 0 0;
+    width : 80%;
+    margin : auto;
 }
 
 #idea {
@@ -10,16 +15,19 @@
     margin-bottom: 20px;
 }
 
+
 #idea .image img {
-    width: 500px; height: 370px;
-    object-fit: cover;
+    padding-top:10px;
+    width : 500px;
+    height: 330px;
+    object-fit: contain;
 }
 
 #idea .text {
     height: 370px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content:flex-start;
     margin-left: 15px;
 }
 
@@ -27,27 +35,39 @@
     font-family: "Noto Sans KR", sans-serif;
     font-size: 17px;
     font-weight: 700;
-    color: #95a792;
+    color: white;
 }
 
 #idea .text .title {
-    font-size: 20px;
+    font-size: 30px;
+    font-style:unset;
+    text-decoration:underline;
     margin-bottom: 20px;
-    color: #403f48;
+    color: #ff5722;
+}
+
+#idea .title, #idea .interest, #idea .devtool, #idea .content {
+    margin : auto 1px;
+    margin-right: 5px;
 }
 
 #idea div span {
     font-weight: 300;
-    color: #403f48;
+    font-size : 16px;
+    color: whitesmoke;
+    text-decoration:underline;
+    margin : 0px;
 }
 
 #idea .text .devtool {
-    color: #403f48
+    color: whitesmoke;
+    
 }
 
+
 #idea .text .devtool a {
-    color: #95a792;
-    text-decoration: none;
+    color : #ff5722;
+    text-decoration:none;
     font-weight: 700;
 }
 
@@ -55,41 +75,46 @@
     text-decoration: underline;
 }
 
-#idea-wrap #buttons {
+#readbuttons {
     display: flex;
-    justify-content: space-between;
-    border-top: 1px solid lightgray;
+    justify-content: space-evenly;
+    width : 40%;
+    margin : auto;
 }
 
-#idea-wrap #buttons input {
+#readbuttons input {
     margin-top: 10px;
     padding: 7px 20px;
     font-family: "Noto Sans KR", sans-serif;
-    color: white;
+    
     font-size: 17px;
-    background: #c9485b;
+    
     border: none;
     border-radius: 5px;
     margin-right: 5px;
     width: 100%;
 }
 
-#idea-wrap #buttons input:hover {
+#readbuttons input:hover {
     cursor: pointer;
 }
 
-#idea-wrap #buttons .right {
-    display: flex;
+#readbuttons form:nth-child(1) input 
+{
+    background: #ff5722;
+    color : white;
 }
 
-#idea-wrap #buttons .right form:nth-child(1) input {
-    background: #95a792
+#readbuttons form:nth-child(2) input {
+    background: #FFF4EC;
+    color : #2F4858;
 }
 
-#idea-wrap #buttons .right form:nth-child(2) {
+#readbuttons .right form:nth-child(3) {
     margin-left: 5px;
 }
 
-#idea-wrap #buttons .right form:nth-child(2) input {
-    background: #596c68;
+#readbuttons form:nth-child(3) input {
+    background: #80ffd3;
+    color : #2F4858;
 }

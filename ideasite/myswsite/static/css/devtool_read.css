@@ -1,9 +1,16 @@
 #wrap {
-    padding: 18px 25%;
+    padding: 18px 10%;
     margin-bottom: 20px;
+    
+    margin:auto;
+    display: block;
 }
 
+
+
 #wrap #background {
+    width : 100%;
+    height : 300px;
     border: 1px solid #cccccc;
     box-shadow: 1px 1px 2px #cccccc;
     border-radius: 5px;
@@ -14,9 +21,14 @@
     font-family: "Noto Sans KR", sans-serif;
     font-size: 16px;
     font-weight: 400;
-    color: #403f48;
+    color: white;
     padding-left: 10px;
-    border-left: 2px solid #95a792;
+    border-left: 2px solid white;
+}
+
+#wrap #devtool span{
+    color : #ff5722;
+    font-size :30px;
 }
 
 #wrap #devtool .name {
@@ -39,7 +51,7 @@
 #wrap #idea .list-name {
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 700;
-    color: #95a792;
+    color:#ff5722;
     margin-bottom: 5px;
     font-size: 18px;
 }
@@ -51,7 +63,7 @@
 #wrap #idea .list a {
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 300;
-    color: grey;
+    color: white;
     font-size: 15px;
     text-decoration: none;
 }

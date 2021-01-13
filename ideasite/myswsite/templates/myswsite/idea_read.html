@@ -13,29 +13,28 @@
             {% endif %}
             <div class="text">
                 <div class="title">{{ idea.title }}</div>
-                <div class="interest">아이디어 관심도 : <span>{{ idea.interest }}</span></div>
-                <div class="devtool">개발 툴 : <a href="{% url 'myswsite:devtool_read' idea.devtool.pk %}">{{ idea.devtool }}</a></div>
-                <div class="content">아이디어 설명 : <span>{{ idea.content|linebreaks }}</span></div>
+                <div class="interest">1) 아이디어 관심도 : <span>{{ idea.interest|linebreaks }}</span></div>
+                <div class="devtool">2) 예상 개발 툴 : <span><a href="{% url 'myswsite:devtool_read' idea.devtool.pk %}">{{ idea.devtool|linebreaks }}</a></span></div>
+                <div class="content">3) 아이디어 설명 : <span>{{ idea.content|linebreaks }}</span></div>
             </div>
         </div>
-
-        <div id="buttons">
-            <div class="left">
-                <form action="{% url 'myswsite:idea_delete' idea.pk %}" method="post">
-                    {% csrf_token %}
-                    <div class="delete"><input type="submit" value="삭제"></div>
-                </form>
-            </div>
-            <div class="right">
-                <form action="{% url 'myswsite:idea_list' %}">
-                    {% csrf_token %}
-                    <div class="list"><input type="submit" value="목록"></div>
-                </form>
-                <form action="{% url 'myswsite:idea_update' idea.pk %}">
-                    {% csrf_token %}
-                    <div class="update"><input type="submit" value="수정"></div>
-                </form>
-            </div>
-        </div>
+    </div>
+    <div id="readbuttons">
+            
+        <form action="{% url 'myswsite:idea_delete' idea.pk %}" method="post">
+            {% csrf_token %}
+            <div class="delete"><input type="submit" value="삭제"></div>
+        </form>
+    
+    
+        <form action="{% url 'myswsite:idea_list' %}">
+            {% csrf_token %}
+            <div class="list"><input type="submit" value="목록"></div>
+        </form>
+        <form action="{% url 'myswsite:idea_update' idea.pk %}">
+            {% csrf_token %}
+            <div class="update"><input type="submit" value="수정"></div>
+        </form>
+        
     </div>
 {% endblock %}

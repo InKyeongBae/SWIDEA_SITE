@@ -9,12 +9,12 @@
     <div id="wrap">
         <div id="background">
             <div id="devtool">
-                <div class="name">{{ devtool.name }}</div>
+                <div class="name"><span>{{ devtool.name }}</span></div>
                 <div class="kind">{{ devtool.kind }}</div>
                 <div class="description">{{ devtool.description }}</div>
             </div>
             <div id="idea">
-                <div class="list-name">만들 수 있는 SW 목록</div>
+                <div class="list-name">> 만들 수 있는 SW 목록</div>
                 <div class="list">
                     {% for idea in devtool.idea.all %}
                         <div><a href="{% url 'myswsite:idea_read' idea.pk %}">{{ idea.title }}</a></div>
@@ -24,22 +24,22 @@
         </div>
     </div>
 
-    <div id="account-buttons">
-        <div class="left">
-            <form action="{% url 'myswsite:devtool_delete' devtool.pk %}" method="post">
-                {% csrf_token %}
-                <div class="delete"><input type="submit" value="삭제"></div>
-            </form>
-        </div>
-        <div class="right">
-            <form action="{% url 'myswsite:devtool_list' %}">
-                {% csrf_token %}
-                <div class="list"><input type="submit" value="목록"></div>
-            </form>
-            <form action="{% url 'myswsite:devtool_update' devtool.pk %}">
-                {% csrf_token %}
-                <div class="update"><input type="submit" value="수정"></div>
-            </form>
-        </div>
+    <div id="readbuttons">
+            
+        <form action="{% url 'myswsite:devtool_delete' devtool.pk %}" method="post">
+            {% csrf_token %}
+            <div class="delete"><input type="submit" value="삭제"></div>
+        </form>
+    
+    
+        <form action="{% url 'myswsite:devtool_list' %}">
+            {% csrf_token %}
+            <div class="list"><input type="submit" value="목록"></div>
+        </form>
+        <form action="{% url 'myswsite:devtool_update' devtool.pk %}">
+            {% csrf_token %}
+            <div class="update"><input type="submit" value="수정"></div>
+        </form>
+        
     </div>
 {% endblock %}
