@@ -54,7 +54,8 @@ $ pip install pillow
 6) DevTool List
 
 > 1) Click the name to go to the DevTool Detail page. <br/>
-> ![devtool detail](https://user-images.githubusercontent.com/65646971/104525316-3b24d800-5643-11eb-8b01-9956f0e17ce9.JPG)
+> ![devtoollist](https://user-images.githubusercontent.com/65646971/104525766-3f052a00-5644-11eb-80aa-005e0ba94dba.JPG)
+
 
 7) DevTool Detail
 
