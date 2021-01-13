@@ -11,7 +11,7 @@
             <div class="devtool">
                 <div class="name"><a href="{% url 'myswsite:devtool_read' devtool.pk %}">{{ devtool.name }}</a></div>
                 <div class="kind">{{ devtool.kind }}</div>
-                <div class="description">{{ devtool.description }}</div>
+                <div class="description" style = "padding-top:10px;">{{ devtool.description }}</div>
             </div>
         {% endfor %}
     </div>

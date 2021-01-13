@@ -5,7 +5,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         function clickButton (pk, status) {
-            console.log(pk); //확인용
             console.log(status);
              $.ajax({
                 type: "post",
@@ -38,10 +37,10 @@
                 {% endif %}
                 <div class="title"><a href="{% url 'myswsite:idea_read' idea.pk %}">{{ idea.title }}</a></div>
                 <div class="devtool">예상 개발 툴 : {{ idea.devtool }}</div>
-                <div id="interest-{{ idea.pk }}" class="interest">아이디어 관심도 : {{ idea.interest }}</div>
+                <span id="interest-{{ idea.pk }}" class="interest">아이디어 관심도 : {{ idea.interest }}</span>
 
-                <input type="submit" onclick="clickButton({{ idea.pk }},'plus')" value="+" class="button">
-                <input type="submit" onclick="clickButton({{ idea.pk }},'minus')" value="-" class="button">
+                <span id="ajaxclass"><input  type="submit" onclick="clickButton({{ idea.pk }},'plus')" value="+" class="button"></span>
+                <span id="ajaxclass"><input  type="submit" onclick="clickButton({{ idea.pk }},'minus')" value="-" class="button"></span>
             </div>
         {% endfor %}
     </div>

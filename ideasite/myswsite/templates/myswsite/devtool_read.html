@@ -16,7 +16,7 @@
             <div id="idea">
                 <div class="list-name">만들 수 있는 SW 목록</div>
                 <div class="list">
-                    {% for idea in devtool.idea_set.all %}
+                    {% for idea in devtool.idea.all %}
                         <div><a href="{% url 'myswsite:idea_read' idea.pk %}">{{ idea.title }}</a></div>
                     {% endfor %}
                 </div>

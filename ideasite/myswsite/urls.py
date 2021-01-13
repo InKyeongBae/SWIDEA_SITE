@@ -8,10 +8,10 @@ from myswsite.views import *
 app_name = 'myswsite'
 
 urlpatterns = [
-    path("", idea_list, name="idea_list"),
+    
 
     path("amount/", interest_ajax, name="interest_ajax"),
-
+    path("", idea_list, name="idea_list"),
     path("idea/<int:pk>/", idea_read, name="idea_read"),
     path("idea/create/", idea_create, name="idea_create"),
     path("idea/update/<int:pk>/", idea_update, name="idea_update"),

@@ -4,6 +4,8 @@
     <head>
         <meta charset="UTF-8">
         <title>My SW Idea Management</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href = "{% static 'css/layout.css' %}">
         <link rel="stylesheet" href="{% static 'css/devtool_list.css' %}" >
         <link rel="stylesheet" href="{% static 'css/devtool_read.css' %}" >
@@ -13,32 +15,35 @@
         {% endblock %}
     </head>
     <body>
+        
         <div id="header">
-            <div id="title">
-                <a href="{% url 'myswsite:idea_list' %}">
-                    My SW Idea Manage
-                </a>
+            <div class ="header-nav">
+                <div id="title">
+                    <a href="{% url 'myswsite:idea_list' %}">
+                        My SW Idea Manage
+                    </a>
+                </div>
+                <div id="nav">
+                    <ul>
+                        <li><a href="{% url 'myswsite:idea_create' %}">아이디어 등록</a></li>
+                        <li><a href="{% url 'myswsite:idea_list' %}">아이디어 관리</a></li>
+                        <li><a href="{% url 'myswsite:devtool_create' %}">개발툴 등록</a></li>
+                        <li><a href="{% url 'myswsite:devtool_list' %}">개발툴 관리</a></li>
+                    </ul>
+                </div>
             </div>
-            <div id="nav">
-                <ul>
-                    <li><a href="{% url 'myswsite:idea_create' %}">아이디어 등록</a></li>
-                    <li><a href="{% url 'myswsite:devtool_create' %}">개발툴 등록</a></li>
-                    <li><a href="{% url 'myswsite:devtool_list' %}">개발툴 관리</a></li>
-                </ul>
-            </div>
+            
         </div>
-
-        <div id="body">
-            {% block content %}
-            {% endblock %}
-        </div>
-
-        <div id="footer">
-            <div>피로그래밍 | 13기 | 14기 운영진 | 배인경</div>
-            <div>
-                중앙대학교 소프트웨어학과 소프트웨어학부 <br/>
-                개발툴 왕창왕창창 늘리구 싶따아!
+        
+        <div id= "glass">
+            <div id="body">
+                {% block content %}
+                {% endblock %}
             </div>
         </div>
+            
+            
+            
+        
     </body>
 </html>

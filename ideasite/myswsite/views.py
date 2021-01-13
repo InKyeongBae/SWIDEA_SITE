@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect,HttpResponse
 
 # Create your views here.
 
+
 def idea_list(request):
     ideas = Idea.objects.all()
     data={
@@ -24,20 +25,16 @@ def idea_read(request, pk):
     return render(request, "myswsite/idea_read.html", data)
 
 
-def idea_create(request):
+def idea_create(request, idea = None):
     if request.method == "POST":
-        form = IdeaForm(request.POST, request.FILES)
+        form = IdeaForm(request.POST, request.FILES, instance= idea)
         if form.is_valid():
             idea = form.save()
-            key = Idea.objects.count()
-            url = reverse('myswsite:idea_read', args=[key])
-            return redirect(to=url)
+            return redirect(idea)
     else:
-        form = IdeaForm()
-        data = {
-            "form": form
-        }
-        return render(request, "myswsite/idea_create.html", data)
+        form = IdeaForm(instance=idea)
+        return render(request, "myswsite/idea_create.html", {"form" : form})
+
 
 
 
@@ -48,15 +45,11 @@ def idea_update(request, pk):
         form = IdeaForm(request.POST, request.FILES, instance=idea)
         if form.is_valid():
             idea = form.save()
-            url = reverse('myswsite:idea_read', args=[idea])
-            return redirect(to=url)
+            return redirect(idea)
 
     else:
         form = IdeaForm(instance=idea)
-        data = {
-            "form": form
-        }
-        return render(request, "myswsite/idea_update.html", data)
+    return render(request, "myswsite/idea_update.html", {"form" : form})
 
 
 def idea_delete(request, pk):
@@ -127,15 +120,11 @@ def devtool_update(request, pk):
         form = DevToolForm(request.POST, instance=devtool)
         if form.is_valid():
             devtool = form.save()
-            url = reverse('myswsite:devtool_read', args=[devtool])
-            return redirect(to=url)
+            return redirect(devtool)
 
     else:
         form = DevToolForm(instance=devtool)
-        data = {
-            "form": form
-        }
-        return render(request, "myswsite/devtool_update.html", data)
+    return render(request, "myswsite/devtool_update.html", {"form" : form})
 
 
 def devtool_delete(request, pk):
